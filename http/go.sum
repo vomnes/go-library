@@ -1,4 +1,0 @@
-github.com/kylelemons/godebug v1.1.0/go.mod h1:9/0rRGxNHcop5bhtWyNeEfOS8JIWk580+fNqagV/RAw=
-github.com/vomnes/go-library v0.0.0-20200529155556-c729ddec7d11 h1:JeJgbw4cNdGETKH3Qt23ixvSEX2Z6oxdYVHvsmGQcqc=
-github.com/vomnes/go-library v0.0.0-20200529155556-c729ddec7d11/go.mod h1:xAEaweCco6Dzex/UOa8S7IJ2WQ09lG4ujPJIu+jfrOQ=
-gopkg.in/mgo.v2 v2.0.0-20190816093944-a6b53ec6cb22/go.mod h1:yeKp02qBN3iKW1OzL3MGk2IdtZzaj7SFntXj72NppTA=
