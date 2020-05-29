@@ -1,4 +1,4 @@
-module tests
+module github.com/vomnes/go-library/tests
 
 go 1.13
 

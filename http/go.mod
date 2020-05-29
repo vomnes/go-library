@@ -1,4 +1,4 @@
-module http
+module github.com/vomnes/go-library/http
 
 go 1.13
 
