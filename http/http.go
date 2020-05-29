@@ -5,8 +5,8 @@ import (
 	"log"
 	"net/http"
 
-	lib ".."
-	libPretty "../pretty"
+	lib "github.com/vomnes/go-library"
+	libPretty "github.com/vomnes/go-library/pretty"
 )
 
 // RespondWithJSON set the content of the http response
