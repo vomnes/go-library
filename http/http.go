@@ -5,14 +5,15 @@ import (
 	"log"
 	"net/http"
 
-	lib ".."
+	lib "github.com/vomnes/go-library"
+	libPretty "github.com/vomnes/go-library/pretty"
 )
 
 // RespondWithJSON set the content of the http response
 func RespondWithJSON(w http.ResponseWriter, code int, payload interface{}) {
 	response, err := json.Marshal(payload)
 	if err != nil {
-		log.Println(lib.PrettyError(err.Error() + "Failed to marshal response"))
+		log.Println(libPretty.Error(err.Error() + "Failed to marshal response"))
 		response, _ = json.Marshal(map[string]interface{}{"error": "Failed to marshal response"})
 		code = 401
 	}

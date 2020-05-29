@@ -1,43 +1,18 @@
 package tests
 
 import (
-	"bytes"
-	"context"
 	"encoding/json"
 	"fmt"
 	"io"
 	"io/ioutil"
 	"log"
-	"net/http"
 	"net/http/httptest"
 	"reflect"
 
-	lib ".."
-	mgo "gopkg.in/mgo.v2"
+	libPretty "github.com/vomnes/go-library/pretty"
 
 	"github.com/kylelemons/godebug/pretty"
 )
-
-// ContextData allows to set the context data for tests
-type ContextData struct {
-	MongoDB        *mgo.Database
-	MongoDBSession *mgo.Session
-}
-
-// CreateRequest allows to call a http route with a body for tests
-// Take as parameter a method, url, body and a structure with the context data
-// Return a http request with data in context
-func CreateRequest(method, url string, body []byte, ctxData ContextData) *http.Request {
-	r := httptest.NewRequest(method, url, bytes.NewBuffer(body))
-	ctx := context.TODO()
-	if ctxData.MongoDB != nil {
-		ctx = context.WithValue(ctx, lib.MongoDB, ctxData.MongoDB)
-	}
-	if ctxData.MongoDBSession != nil {
-		ctx = context.WithValue(ctx, lib.MongoDBSession, ctxData.MongoDBSession)
-	}
-	return r.WithContext(ctx)
-}
 
 // ChargeResponse allows to mode http body in structure, used for tests
 func ChargeResponse(w *httptest.ResponseRecorder, response interface{}) error {
@@ -57,7 +32,7 @@ type responseBodyError struct {
 func ReadBodyError(r io.Reader) string {
 	body, err := ioutil.ReadAll(r)
 	if err != nil {
-		log.Fatal(lib.PrettyError(err.Error()))
+		log.Fatal(libPretty.Error(err.Error()))
 	}
 	var responseBody responseBodyError
 	err = json.Unmarshal(body, &responseBody)
